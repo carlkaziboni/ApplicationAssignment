@@ -1,0 +1,71 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ADAM",
+            "request": "launch",
+            "mainClass": "application.ADAM",
+            "projectName": "ApplicationAssignment_8b95083a"
+        },
+        {
+            "type": "java",
+            "name": "PrintMessageInABottle",
+            "request": "launch",
+            "mainClass": "todo00_obfuscation.PrintMessageInABottle",
+            "projectName": "ApplicationAssignment_8b95083a"
+        },
+        {
+            "type": "java",
+            "name": "DeadlineDates",
+            "request": "launch",
+            "mainClass": "todo01_dates.DeadlineDates",
+            "projectName": "ApplicationAssignment_8b95083a"
+        },
+        {
+            "type": "java",
+            "name": "ProgramInvokingFileReading",
+            "request": "launch",
+            "mainClass": "todo03_read_config.ProgramInvokingFileReading",
+            "projectName": "ApplicationAssignment_8b95083a",
+            "args": "ApplicationAssignmentPart1\\input"
+        },
+        {
+            "type": "java",
+            "name": "ProgramInvokingStreamReading",
+            "request": "launch",
+            "mainClass": "todo04_read_assignment.ProgramInvokingStreamReading",
+            "projectName": "ApplicationAssignment_8b95083a"
+        },
+        {
+            "type": "java",
+            "name": "RunSplit",
+            "request": "launch",
+            "mainClass": "todo05_syntax_process_input.RunSplit",
+            "projectName": "ApplicationAssignment_8b95083a"
+        },
+        {
+            "type": "java",
+            "name": "RunSemanticProcessing",
+            "request": "launch",
+            "mainClass": "todo06_semantic_process_input.RunSemanticProcessing",
+            "projectName": "ApplicationAssignment_8b95083a"
+        },
+        {
+            "type": "java",
+            "name": "Printer",
+            "request": "launch",
+            "mainClass": "todo07_output.Printer",
+            "projectName": "ApplicationAssignment_8b95083a"
+        }
+    ]
+}
