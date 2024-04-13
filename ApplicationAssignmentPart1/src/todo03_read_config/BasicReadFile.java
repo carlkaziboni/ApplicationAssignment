@@ -66,7 +66,6 @@ public class BasicReadFile {
             The apparent type is more generic than the actual type.
          */
         List<LineContent> processedLines = new ArrayList<>();
-        List<String> comments = new ArrayList<>();
 
         while (linesIterator.hasNext())
         {
@@ -74,21 +73,7 @@ public class BasicReadFile {
          if (!current.isBlank())
          {
             String[] currentSplit = current.strip().split("\t", 2);
-            if (currentSplit[0].strip().equals("start") || currentSplit[0].equals("end"))
-            {
-               LineContent temp = new LineContent(currentSplit[0].strip(), ZonedDateTime.parse(currentSplit[1].strip()));
-               processedLines.add(temp);   
-            }
-            else if (currentSplit[0].strip().equals("hours"))
-            {
-               LineContent temp = new LineContent(currentSplit[0].strip(), Double.parseDouble(currentSplit[1].strip()));
-               processedLines.add(temp);
-            }
-            else if (currentSplit[0].strip().equals("comment"))
-            {
-               comments.add(currentSplit[1].strip());
-            }
-            else if (currentSplit[0].equals("timezone"))
+            if (currentSplit[0].equals("timezone"))
             {
                LineContent temp = new LineContent(currentSplit[0].strip(), ZoneId.of(currentSplit[1].strip()));
                processedLines.add(temp);
@@ -100,11 +85,6 @@ public class BasicReadFile {
             }
          }
       }
-         if (!comments.isEmpty()) {
-            String commentsJoined = String.join("; ", comments);
-            LineContent temp = new LineContent("comments", commentsJoined);
-            processedLines.add(temp);
-         }
         return processedLines;
         /* In case you are wondering, it is safe to return processedLines
            because it is a local variable not a field. Each time this method
