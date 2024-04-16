@@ -1,9 +1,9 @@
-package todo02_assignments;
+/* package todo02_assignments;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-/* public class EvilCode {
+ public class EvilCode {
     public static void main(String[] args) {
         Assignment a = new Assignment(null, null, new BigDecimal(1));
 

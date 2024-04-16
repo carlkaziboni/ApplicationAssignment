@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.lang.Double;
 
 public class BasicReadFile {
     /* One way to do this class is as a utility class.
