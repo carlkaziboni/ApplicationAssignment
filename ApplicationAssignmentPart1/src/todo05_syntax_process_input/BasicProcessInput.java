@@ -1,12 +1,13 @@
 package todo05_syntax_process_input;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class BasicProcessInput {
     private BasicProcessInput() {} // Makes this a utility class
 
-    public static List<SplitInput> splitInput(List<String> fileLines) {
+    public static List<SplitInput> splitNotBlankInput(List<String> fileLines, String pattern) {
         /* TODO Use IntelliJ to change the method signature to have
                 an extra parameter that specifies what pattern is used
                 to split the input. This will make this method more general.
@@ -35,6 +36,18 @@ public class BasicProcessInput {
                 2. handle lines that do not split
          */
 
+        Iterator<String> fileLinesIterator = fileLines.iterator();
+
+        while (fileLinesIterator.hasNext()) {
+                String currentFileLine = fileLinesIterator.next();
+                if (!currentFileLine.isBlank())
+                {
+                        String[] currentFileLineSplit = currentFileLine.strip().split(pattern, 2);
+                        SplitInput currentFileLineSplitObject = new SplitInput(currentFileLineSplit[0], currentFileLineSplit[1].strip());
+                        splitLines.add(currentFileLineSplitObject);
+                }
+        }
+
         /* TODO If you are the kind of programmer who is worried by
                 amount of memory that redundant copies of the input are occupying
                 then you can set the variables pointing unwanted copies to be
@@ -51,7 +64,7 @@ public class BasicProcessInput {
                 the data and the pattern (a single tab) for splitting the
                 input.
      */
-        return splitInput(fileLines); // TODO Add the extra parameter
+        return splitNotBlankInput(fileLines, "\t"); // TODO Add the extra parameter
     }
 
     public static String normaliseCategory(String rawCommand) {
@@ -61,7 +74,7 @@ public class BasicProcessInput {
                 "timezone" and "TIMEZONE" and "timeZone" (and other variations)
                 to become the same once normalised.
          */
-        return rawCommand;
+        return (rawCommand.strip().toLowerCase());
         /* TODO Tips: 1. Look through String's API by typing `rawCommand.`
                       2. You can make a small optimisation if you are
                          adjusting orthography and stripping extraneous
