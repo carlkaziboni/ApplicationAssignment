@@ -1,0 +1,15 @@
+Begin	AssignmentTest
+course	Inf1B
+start	2024-04-29T09:00:00.0Z[Europe/London]
+end	2024-05-10T12:00:00.0Z[Europe/London]
+hours	14
+comment	informal start 28 March
+comment	actual assessment done during the exam period after Easter
+Begin	AssignmentTest2
+course	Inf1B
+start	2024-04-29T09:00:00.0Z[Europe/London]
+end	2024-05-10T12:00:00.0Z[Europe/London]
+hours	7
+hours	14
+comment	informal start 28 March
+comment	actual assessment done during the exam period after Easter

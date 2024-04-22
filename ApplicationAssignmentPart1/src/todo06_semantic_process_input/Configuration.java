@@ -2,6 +2,8 @@ package todo06_semantic_process_input;
 
 import static todo06_semantic_process_input.OutputConfig.*;
 
+import java.time.ZoneId;
+
 /* TODO Make this class hold the application's configuration.
         It's up to you what features it has, though they should
         reflect the categories in the configuration file(s).
@@ -15,15 +17,37 @@ import static todo06_semantic_process_input.OutputConfig.*;
         application.
  */
 public class Configuration {
-    private OutputConfig outputStyle;
+    public OutputConfig outputStyle;
+    public SplashConfig splashStyle;
+    public ZoneId timeZone;
+    private static Configuration instance;
 
-    public Configuration(OutputConfig outputStyle) {this.outputStyle = outputStyle;}
+    private Configuration(OutputConfig outputStyle, SplashConfig splashStyle, ZoneId timeZone) {
+        this.outputStyle = outputStyle;
+        this.splashStyle = splashStyle;
+        this.timeZone = timeZone;
+    }
+
+    public static Configuration getInstanceConfiguration(OutputConfig outputStyle, SplashConfig splashStyle, ZoneId timeZone)
+    {
+        if (instance == null)
+        {
+            instance = new Configuration(outputStyle, splashStyle, timeZone);
+            return instance;
+        }
+        return instance;
+    }
+
 
     public OutputConfig getOutputStyle() {
         return outputStyle;
     }
 
-    public void setOutputStyle(OutputConfig outputStyle) {
-        this.outputStyle = outputStyle;
+    public SplashConfig getSplashStyle() {
+        return splashStyle;
+    }
+
+    public ZoneId getTimeZone() {
+        return timeZone;
     }
 }

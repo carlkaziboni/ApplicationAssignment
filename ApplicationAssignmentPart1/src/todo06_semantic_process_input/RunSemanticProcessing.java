@@ -20,7 +20,7 @@ public class RunSemanticProcessing {
         List<Assignment> assignments = processAssignments();
     }
 
-    private static void processConfiguration(String[] args) {
+    private static Configuration processConfiguration(String[] args) {
         // TODO You might want to use the command-line arguments
 
         // TODO Create a List of lines (sensible or otherwise) to process
@@ -32,7 +32,7 @@ public class RunSemanticProcessing {
                                                   "you need customised config data per item"));
         }
 
-        ProcessConfigCategory.processCategories(configurationLines);
+        return ProcessConfigCategory.processCategories(configurationLines);
     }
 
     private static List<Assignment> processAssignments() {
