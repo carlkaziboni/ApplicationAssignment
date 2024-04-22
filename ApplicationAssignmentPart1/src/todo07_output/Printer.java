@@ -49,9 +49,7 @@ public class Printer {
         return (totalHours.doubleValue()/(duration.toDays()));
     }
 
-    public static void printWorkload(Assignment assignment,
-                                     Duration duration,
-                                     BigDecimal hoursRequired, Configuration conf) {
+    public static void printWorkload(Assignment assignment, Configuration conf) {
         /* TODO Transplant the technique or code from todo01_dates to calculate
                 a duration between the start and end dates.
                 Alternatively, don't bother with the Assignment object and
@@ -67,17 +65,17 @@ public class Printer {
          */
         switch ( conf.getOutputStyle() ) {
             case SUMMARY: {
-                printSummary(assignment, duration, hoursRequired);
+                printSummary(assignment, assignment.getDuration(), new BigDecimal(assignment.getHoursRequired()));
                 break;
             }
             case DAILY: {
-                printWeekly(assignment, duration, hoursRequired);
+                printWeekly(assignment, assignment.getDuration(), new BigDecimal(assignment.getHoursRequired()));
                 break;
             }
             /* TODO You might need a way to gracefully handle unexpected input
                     that has somehow slipped through the filtering.
              */
-            default: printSummary(assignment,duration,hoursRequired);
+            default: printSummary(assignment, assignment.getDuration(), new BigDecimal(assignment.getHoursRequired()));
         }
     }
 

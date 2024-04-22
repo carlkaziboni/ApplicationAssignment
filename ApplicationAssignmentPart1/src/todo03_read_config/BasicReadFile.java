@@ -25,7 +25,7 @@ public class BasicReadFile {
         try {
          lines = Files.readAllLines(Path.of(filename));
         } catch (IOException e) {
-         System.err.println("Error");
+         System.err.println("Error reading " + filename);
         }
         return lines;
         /* This method just calls a library method so it might seem

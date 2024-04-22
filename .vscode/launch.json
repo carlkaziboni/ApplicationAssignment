@@ -15,7 +15,8 @@
             "name": "ADAM",
             "request": "launch",
             "mainClass": "application.ADAM",
-            "projectName": "ApplicationAssignment_8b95083a"
+            "projectName": "ApplicationAssignment_8b95083a",
+            "args": "ApplicationAssignmentPart1\\input\\defaultConfig.tsv ApplicationAssignmentPart1\\input\\summaryView.tsv"
         },
         {
             "type": "java",

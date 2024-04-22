@@ -28,7 +28,7 @@ public class Configuration {
         this.timeZone = timeZone;
     }
 
-    public static Configuration getInstanceConfiguration(OutputConfig outputStyle, SplashConfig splashStyle, ZoneId timeZone)
+    protected static Configuration getInstanceConfiguration(OutputConfig outputStyle, SplashConfig splashStyle, ZoneId timeZone)
     {
         if (instance == null)
         {
