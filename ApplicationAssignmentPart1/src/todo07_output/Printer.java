@@ -2,7 +2,6 @@ package todo07_output;
 
 import todo02_assignments.Assignment;
 import todo06_semantic_process_input.Configuration;
-import todo06_semantic_process_input.OutputConfig;
 
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -36,38 +35,10 @@ public class Printer {
      */
 
     // TODO Really you should use the application's sole configuration object.
-    private static Configuration conf = new Configuration(OutputConfig.SUMMARY);
 
-    public static void main(String[] args) {
-        /* TODO Build a minimal Configuration:
-                build a minimal one if you are starting with the output tasks
-                otherwise build a fuller or full config if you are doing output
-                last.
-                You might be able to build it from input files.
-         */
-        // TODO conf = a proper configuration
+   private Printer(){}
 
-        /* TODO Build a minimal Assignment:
-                build a minimal one if you are starting with the output tasks
-                otherwise build a fuller or full Assignment if you are doing
-                output last.
-                You might be able to build it from an input stream.
-         */
-
-        // TODO Remove this temporary declaration of hoursRequired
-        BigDecimal hoursRequired = new BigDecimal(14);
-
-        // TODO At some point you are doing to need proper information.
-        //Assignment assignment = new Assignment(null, null, hoursRequired);
-
-        // TODO Calculate the duration properly.
-        Duration assignmentDuration =
-                Duration.ofDays(6); // Nearly one week left
-
-        //printWorkload(assignment, assignmentDuration, hoursRequired);
-    }
-
-    public static int hoursPerDay(Duration duration, BigDecimal totalHours) {
+    public static double hoursPerDay(Duration duration, BigDecimal totalHours) {
         /* Believe it or not, almost all the rest of the code
            in the entire application culminates in this
            single, (hopefully) simple(ish) line. Simple depending on the
@@ -75,12 +46,12 @@ public class Printer {
            process them.
          */
         // TODO Calculate the hours per day
-        return -1;
+        return (totalHours.doubleValue()/(duration.toDays()));
     }
 
     public static void printWorkload(Assignment assignment,
                                      Duration duration,
-                                     BigDecimal hoursRequired) {
+                                     BigDecimal hoursRequired, Configuration conf) {
         /* TODO Transplant the technique or code from todo01_dates to calculate
                 a duration between the start and end dates.
                 Alternatively, don't bother with the Assignment object and
@@ -116,7 +87,7 @@ public class Printer {
         /* TODO One of many problems with this method is that it is using
                 a magic String rather than a proper constant for the template.
          */
-        System.out.printf("Hours per day for this assignment %d%n",
+        System.out.printf("Hours per day for this assignment %.2f%n",
                           hoursPerDay(duration, hoursRequired));
     }
 
@@ -125,11 +96,11 @@ public class Printer {
                                    BigDecimal hoursRequired) {
 
         // TODO This loop is just for testing: you need the real number of days.
-        for ( int day = 1; day <= 7; day++ ) {
+        for ( int day = 1; day <= duration.toDays(); day++ ) {
             /* TODO One of many problems with this method is that it is using
                     a magic String rather than a proper constant for the template.
              */
-            System.out.printf("On day %d do %d hours%n",
+            System.out.printf("On day %d do %.2f hours%n",
                               day,
                               hoursPerDay(duration, hoursRequired));
         }
